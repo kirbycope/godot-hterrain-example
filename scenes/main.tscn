@@ -1,31 +1,35 @@
-[gd_scene load_steps=18 format=3 uid="uid://8ygup2dt0cuq"]
+[gd_scene load_steps=19 format=3 uid="uid://8ygup2dt0cuq"]
 
+[ext_resource type="Texture2D" uid="uid://bj6kug3ky56ai" path="res://assets/DaySkyHDRI042A_1K-TONEMAPPED.jpg" id="1_a8y0u"]
 [ext_resource type="Script" uid="uid://diukql46dk4bm" path="res://addons/zylann.hterrain/hterrain.gd" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://cg2egl7awll4i" path="res://scenes/stones.tscn" id="1_trceg"]
 [ext_resource type="Resource" uid="uid://cwk67062fnnew" path="res://data/data.hterrain" id="2_jyhfs"]
 [ext_resource type="Script" uid="uid://u08sjuv15dhi" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="3_tbgi4"]
-[ext_resource type="Texture2D" uid="uid://cpyjj6rqtpjp1" path="res://textures/main_slot0_albedo_bump.png" id="4_ya4ey"]
-[ext_resource type="Texture2D" uid="uid://dni7ujx7y6m3a" path="res://textures/main_slot1_albedo_bump.png" id="5_eb6dy"]
-[ext_resource type="Texture2D" uid="uid://ikdej0nhbm2k" path="res://textures/main_slot2_albedo_bump.png" id="6_trceg"]
-[ext_resource type="Texture2D" uid="uid://csubs7l8whumm" path="res://textures/main_slot3_albedo_bump.png" id="7_a8y0u"]
-[ext_resource type="Texture2D" uid="uid://f4qs63o1jfln" path="res://textures/main_slot0_normal_roughness.png" id="8_jkv2x"]
-[ext_resource type="Texture2D" uid="uid://omidtstuxauj" path="res://textures/main_slot1_normal_roughness.png" id="9_jbj1t"]
-[ext_resource type="Texture2D" uid="uid://drx6aqg6av458" path="res://textures/main_slot2_normal_roughness.png" id="10_muem4"]
-[ext_resource type="Texture2D" uid="uid://cuibgycwgw5iu" path="res://textures/main_slot3_normal_roughness.png" id="11_dp3eg"]
+[ext_resource type="Texture2D" uid="uid://dsdphuhghadmq" path="res://textures/main_slot0_albedo_bump.png" id="4_ya4ey"]
+[ext_resource type="Texture2D" uid="uid://uwewf8niet3h" path="res://textures/main_slot1_albedo_bump.png" id="5_eb6dy"]
+[ext_resource type="Texture2D" uid="uid://dycv4iknj8k1d" path="res://textures/main_slot2_albedo_bump.png" id="6_trceg"]
+[ext_resource type="Texture2D" uid="uid://btnkpw682g12b" path="res://textures/main_slot3_albedo_bump.png" id="7_a8y0u"]
+[ext_resource type="Texture2D" uid="uid://dgwa8ue24r4ss" path="res://textures/main_slot0_normal_roughness.png" id="8_jkv2x"]
+[ext_resource type="Texture2D" uid="uid://cwg5yg1fnrryc" path="res://textures/main_slot1_normal_roughness.png" id="9_jbj1t"]
+[ext_resource type="Texture2D" uid="uid://dt3jj5f1jv4jr" path="res://textures/main_slot2_normal_roughness.png" id="10_muem4"]
+[ext_resource type="Texture2D" uid="uid://ghnybrlnusy0" path="res://textures/main_slot3_normal_roughness.png" id="11_dp3eg"]
 [ext_resource type="PackedScene" uid="uid://c3tljaegdi287" path="res://scenes/player.tscn" id="12_eb6dy"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0ld40"]
-sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
-ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_jkv2x"]
+panorama = ExtResource("1_a8y0u")
 
 [sub_resource type="Sky" id="Sky_gqmmt"]
-sky_material = SubResource("ProceduralSkyMaterial_0ld40")
+sky_material = SubResource("PanoramaSkyMaterial_jkv2x")
 
 [sub_resource type="Environment" id="Environment_yc10j"]
 background_mode = 2
 sky = SubResource("Sky_gqmmt")
 tonemap_mode = 2
 glow_enabled = true
+fog_enabled = true
+fog_light_color = Color(0.756863, 0.752941, 0.666667, 1)
+fog_sky_affect = 0.5
+volumetric_fog_albedo = Color(0.755185, 0.752515, 0.664925, 1)
 
 [sub_resource type="Resource" id="Resource_tefeu"]
 script = ExtResource("3_tbgi4")
@@ -42,7 +46,7 @@ shadow_enabled = true
 environment = SubResource("Environment_yc10j")
 
 [node name="Stones" parent="." instance=ExtResource("1_trceg")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 231.956, 0, 255.002)
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 231.956, 3.76495, 255.002)
 
 [node name="HTerrain" type="Node3D" parent="."]
 script = ExtResource("1_sugp2")
@@ -64,4 +68,4 @@ shader_params/u_tile_reduction = Vector4(1, 1, 1, 1)
 metadata/_custom_type_script = "uid://diukql46dk4bm"
 
 [node name="Player" parent="." instance=ExtResource("12_eb6dy")]
-transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 256, 1, 256)
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 222, 4.76495, 253)
