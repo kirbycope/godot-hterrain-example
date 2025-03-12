@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://c3tljaegdi287"]
+
+[ext_resource type="Script" uid="uid://bqsxlscqsoq5l" path="res://scenes/player.gd" id="1_3vyb7"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u8vuu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g2els"]
+metallic = 0.5
+roughness = 0.5
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_3vyb7"]
+material = SubResource("StandardMaterial3D_g2els")
+height = 1.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3vyb7"]
+albedo_color = Color(1, 0, 0, 1)
+metallic = 0.5
+roughness = 0.5
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_g2els"]
+material = SubResource("StandardMaterial3D_3vyb7")
+height = 1.5
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_3vyb7")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 1, 2)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_u8vuu")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+mesh = SubResource("CapsuleMesh_3vyb7")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.250174, 0)
+mesh = SubResource("CapsuleMesh_g2els")
