@@ -1,6 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://8ygup2dt0cuq"]
+[gd_scene load_steps=18 format=3 uid="uid://8ygup2dt0cuq"]
 
 [ext_resource type="Script" uid="uid://diukql46dk4bm" path="res://addons/zylann.hterrain/hterrain.gd" id="1_sugp2"]
+[ext_resource type="PackedScene" uid="uid://cg2egl7awll4i" path="res://scenes/stones.tscn" id="1_trceg"]
 [ext_resource type="Resource" uid="uid://cwk67062fnnew" path="res://data/data.hterrain" id="2_jyhfs"]
 [ext_resource type="Script" uid="uid://u08sjuv15dhi" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="3_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://cpyjj6rqtpjp1" path="res://textures/main_slot0_albedo_bump.png" id="4_ya4ey"]
@@ -40,6 +41,9 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_yc10j")
 
+[node name="Stones" parent="." instance=ExtResource("1_trceg")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 231.956, 0, 255.002)
+
 [node name="HTerrain" type="Node3D" parent="."]
 script = ExtResource("1_sugp2")
 _terrain_data = ExtResource("2_jyhfs")
@@ -53,11 +57,11 @@ custom_globalmap_shader = null
 texture_set = SubResource("Resource_tefeu")
 render_layers = 1
 cast_shadow = 1
-shader_params/u_ground_uv_scale = 20
+shader_params/u_ground_uv_scale = 20.0
 shader_params/u_depth_blending = true
 shader_params/u_triplanar = false
 shader_params/u_tile_reduction = Vector4(1, 1, 1, 1)
 metadata/_custom_type_script = "uid://diukql46dk4bm"
 
 [node name="Player" parent="." instance=ExtResource("12_eb6dy")]
-transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 1, 1, 1)
+transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 256, 1, 256)
