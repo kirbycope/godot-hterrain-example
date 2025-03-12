@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://8ygup2dt0cuq"]
+[gd_scene load_steps=22 format=3 uid="uid://8ygup2dt0cuq"]
 
 [ext_resource type="Texture2D" uid="uid://bj6kug3ky56ai" path="res://assets/DaySkyHDRI042A_1K-TONEMAPPED.jpg" id="1_a8y0u"]
 [ext_resource type="Script" uid="uid://diukql46dk4bm" path="res://addons/zylann.hterrain/hterrain.gd" id="1_sugp2"]
@@ -14,6 +14,9 @@
 [ext_resource type="Texture2D" uid="uid://dt3jj5f1jv4jr" path="res://textures/main_slot2_normal_roughness.png" id="10_muem4"]
 [ext_resource type="Texture2D" uid="uid://ghnybrlnusy0" path="res://textures/main_slot3_normal_roughness.png" id="11_dp3eg"]
 [ext_resource type="PackedScene" uid="uid://c3tljaegdi287" path="res://scenes/player.tscn" id="12_eb6dy"]
+[ext_resource type="Script" uid="uid://lbwemtn658s5" path="res://addons/zylann.hterrain/hterrain_detail_layer.gd" id="14_jbj1t"]
+[ext_resource type="Texture2D" uid="uid://xrh0o8gbyhll" path="res://assets/grass.png" id="15_muem4"]
+[ext_resource type="Texture2D" uid="uid://6jmdwj3vn6m0" path="res://addons/zylann.hterrain/tools/icons/icon_detail_layer_node.svg" id="16_muem4"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_jkv2x"]
 panorama = ExtResource("1_a8y0u")
@@ -24,11 +27,11 @@ sky_material = SubResource("PanoramaSkyMaterial_jkv2x")
 [sub_resource type="Environment" id="Environment_yc10j"]
 background_mode = 2
 sky = SubResource("Sky_gqmmt")
-tonemap_mode = 2
+tonemap_mode = 4
 glow_enabled = true
-fog_enabled = true
 fog_light_color = Color(0.756863, 0.752941, 0.666667, 1)
-fog_sky_affect = 0.5
+fog_light_energy = 0.5
+fog_sky_affect = 0.9
 volumetric_fog_albedo = Color(0.755185, 0.752515, 0.664925, 1)
 
 [sub_resource type="Resource" id="Resource_tefeu"]
@@ -40,6 +43,9 @@ textures = [[ExtResource("4_ya4ey"), ExtResource("5_eb6dy"), ExtResource("6_trce
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+light_color = Color(0.588827, 0.564854, 0.475109, 1)
+light_energy = 0.5
+light_indirect_energy = 0.5
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -50,6 +56,7 @@ transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 231.956, 3.76495, 255.0
 
 [node name="HTerrain" type="Node3D" parent="."]
 script = ExtResource("1_sugp2")
+ambient_wind = 0.1
 _terrain_data = ExtResource("2_jyhfs")
 chunk_size = 32
 collision_enabled = true
@@ -66,6 +73,18 @@ shader_params/u_depth_blending = true
 shader_params/u_triplanar = false
 shader_params/u_tile_reduction = Vector4(1, 1, 1, 1)
 metadata/_custom_type_script = "uid://diukql46dk4bm"
+
+[node name="HTerrainDetailLayer" type="Node3D" parent="HTerrain"]
+script = ExtResource("14_jbj1t")
+texture = ExtResource("15_muem4")
+view_distance = 500.0
+density = 1.0
+shader_params/u_globalmap_tint_bottom = 0.5
+shader_params/u_globalmap_tint_top = 0.5
+shader_params/u_bottom_ao = 0.5
+shader_params/u_instance_scale = null
+shader_params/u_roughness = null
+metadata/_editor_icon = ExtResource("16_muem4")
 
 [node name="Player" parent="." instance=ExtResource("12_eb6dy")]
 transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 222, 4.76495, 253)

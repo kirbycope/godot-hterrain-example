@@ -19,6 +19,7 @@ https://hterrain-plugin.readthedocs.io/en/latest/
 
 ## Textures
 https://youtu.be/Af1f2JPvSIs?t=178
+</br>https://github.com/Arnklit/TutorialResources/blob/main/Simple%20Terrain/grass.png
 1. In the root of the project, create a new folder named `assets`
 1. Download the 1K-JPG.zip for:
 	- https://ambientcg.com/view?id=Ground037
@@ -53,3 +54,7 @@ https://youtu.be/Af1f2JPvSIs?t=178
 1. Select "OK" and then "Close"
 1. In the Inspector for the HTerrain, navigate to "Rendering" > "Shader Params" "U Tile Reduction"
 1. Set the values to `1.0`
+
+
+</br>Classic4 shader limits the textures to 4, with the 4th being earmarked for cliff faces.
+</br>Changing to 16 but I was unable to create a Texture Array.
