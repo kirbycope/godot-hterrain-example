@@ -15,6 +15,11 @@ run/main_scene="uid://8ygup2dt0cuq"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Controls="*res://addons/3d_player_controller/controls.gd"
+States="*res://addons/3d_player_controller/states/states.gd"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/zylann.hterrain/plugin.cfg")

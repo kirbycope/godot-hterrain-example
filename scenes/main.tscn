@@ -13,10 +13,10 @@
 [ext_resource type="Texture2D" uid="uid://cwg5yg1fnrryc" path="res://textures/main_slot1_normal_roughness.png" id="9_jbj1t"]
 [ext_resource type="Texture2D" uid="uid://dt3jj5f1jv4jr" path="res://textures/main_slot2_normal_roughness.png" id="10_muem4"]
 [ext_resource type="Texture2D" uid="uid://ghnybrlnusy0" path="res://textures/main_slot3_normal_roughness.png" id="11_dp3eg"]
-[ext_resource type="PackedScene" uid="uid://c3tljaegdi287" path="res://scenes/player.tscn" id="12_eb6dy"]
 [ext_resource type="Script" uid="uid://lbwemtn658s5" path="res://addons/zylann.hterrain/hterrain_detail_layer.gd" id="14_jbj1t"]
 [ext_resource type="Texture2D" uid="uid://xrh0o8gbyhll" path="res://assets/grass.png" id="15_muem4"]
 [ext_resource type="Texture2D" uid="uid://6jmdwj3vn6m0" path="res://addons/zylann.hterrain/tools/icons/icon_detail_layer_node.svg" id="16_muem4"]
+[ext_resource type="PackedScene" uid="uid://ujh51l2wv1vk" path="res://addons/3d_player_controller/player_3d.tscn" id="17_muem4"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_jkv2x"]
 panorama = ExtResource("1_a8y0u")
@@ -190,16 +190,14 @@ metadata/_custom_type_script = "uid://diukql46dk4bm"
 script = ExtResource("14_jbj1t")
 texture = ExtResource("15_muem4")
 custom_shader = SubResource("Shader_muem4")
+density = 5.0
 cast_shadow = 0
 shader_params/u_globalmap_tint_bottom = 0.5
 shader_params/u_globalmap_tint_top = 0.5
 shader_params/u_bottom_ao = 0.5
-shader_params/u_instance_scale = Vector3(0.8, 0.8, 0.8)
+shader_params/u_instance_scale = Vector3(0.5, 0.5, 0.5)
 shader_params/u_roughness = null
 metadata/_editor_icon = ExtResource("16_muem4")
 
-[node name="Player" parent="." instance=ExtResource("12_eb6dy")]
-transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 222, 4.76495, 253)
-
-[node name="Camera3D2" type="Camera3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 2, 3)
+[node name="Player" parent="." instance=ExtResource("17_muem4")]
+transform = Transform3D(-0.0328935, 0, -0.999459, 0, 1, 0, 0.999459, 0, -0.0328935, 223.79, 3.69746, 251.984)

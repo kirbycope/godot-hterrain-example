@@ -58,3 +58,6 @@ https://youtu.be/Af1f2JPvSIs?t=178
 
 </br>Classic4 shader limits the textures to 4, with the 4th being earmarked for cliff faces.
 </br>Changing to 16 but I was unable to create a Texture Array.
+
+## Models
+- [SketchUp Residency Title Stonehenge](https://sketchfab.com/3d-models/sketchup-residency-title-stonehenge-b045d1987a2e44388a9c1431fe6db55e) - SKETCHUP RESIDENCY
