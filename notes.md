@@ -11,7 +11,7 @@ https://hterrain-plugin.readthedocs.io/en/latest/
 1. Select the box to enable "Heightmap Terrain"
 1. Create a new 3d Scene
 1. Rename the scene "Main" and save as `scenes/main.tscn`
-1. Select "Add Child Node..." > "HTerrain" 
+1. Select "Add Child Node..." > "HTerrain"
 1. In the Inspector for the HTerrain, select the folder icon next to "Data Directory"
 1. Create a new folder named `data` and select that folder
 	1. Data directory should now be set as "res://data"
