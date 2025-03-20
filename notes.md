@@ -15,7 +15,7 @@ https://hterrain-plugin.readthedocs.io/en/latest/
 1. In the Inspector for the HTerrain, select the folder icon next to "Data Directory"
 1. Create a new folder named `data` and select that folder
 	1. Data directory should now be set as "res://data"
-	1. You should now have a white sqaure in your scene, orginating at (0, 0, 0)
+	1. You should now have a white sqaure in your scene, originating at (0, 0, 0)
 
 ## Textures
 https://youtu.be/Af1f2JPvSIs?t=178
